@@ -1,0 +1,701 @@
+{
+	"info": {
+		"_postman_id": "e95c1547-8ddf-4281-91b3-b655dc4b4113",
+		"name": "Telegram-bot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/sendMessage",
+			"item": [
+				{
+					"name": "keyboard",
+					"item": [
+						{
+							"name": "one_time_keyboard",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"parse_mode\":\"HTML\",\r\n\t\"text\":\"Bom dia! Tudo bem com você?\",\r\n    \"reply_markup\": {\r\n       \r\n        \"one_time_keyboard\":true,\r\n        \"resize_keyboard\":true,\r\n            \"keyboard\": [[\r\n                { \r\n                    \"text\": \"Sim\",\r\n                    \"callback_data\": \"S\"            \r\n                }, \r\n                {\r\n                    \"text\": \"Não\",\r\n                    \"callback_data\": \"N\"            \r\n                } \r\n                ]\r\n            ]\r\n        }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+									"protocol": "https",
+									"host": [
+										"api",
+										"telegram",
+										"org"
+									],
+									"path": [
+										"bot{{telegram_token}}",
+										"sendMessage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request_location",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"parse_mode\":\"HTML\",\r\n\t\"text\":\"Qual o seu endereço?\",\r\n    \"reply_markup\": {\r\n        \"one_time_keyboard\":true,\r\n        \"resize_keyboard\":true,\r\n            \"keyboard\": [[\r\n                { \"request_location\":true,\r\n                    \"text\": \"Enviar Localização\"           \r\n                }, \r\n                {\r\n                    \"text\": \"Desejo informar por texto\"       \r\n                } \r\n                ]\r\n            ]\r\n        }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+									"protocol": "https",
+									"host": [
+										"api",
+										"telegram",
+										"org"
+									],
+									"path": [
+										"bot{{telegram_token}}",
+										"sendMessage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request_contact",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"parse_mode\":\"HTML\",\r\n\t\"text\":\"Qual o seu telefone?\",\r\n    \"reply_markup\": {\r\n        \"one_time_keyboard\":true,\r\n        \"resize_keyboard\":true,\r\n            \"keyboard\": [[\r\n                { \"request_contact\":true,\r\n                    \"text\": \"Enviar contato\"           \r\n                }, \r\n                {\r\n                    \"text\": \"Não desejo informar\"           \r\n                } \r\n                ]\r\n            ]\r\n        }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+									"protocol": "https",
+									"host": [
+										"api",
+										"telegram",
+										"org"
+									],
+									"path": [
+										"bot{{telegram_token}}",
+										"sendMessage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "inline_keyboard + url",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"parse_mode\":\"HTML\",\r\n\t\"text\":\"Clique no botão abaixo para abrir o site\",\r\n    \"reply_markup\": {\r\n        \"resize_keyboard\":true,\r\n            \"inline_keyboard\": [[\r\n                {\r\n                    \"text\": \"Abrir site\",\r\n                    \"url\":\"http://leobreda.net\"      \r\n                }]]\r\n            \r\n        }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+									"protocol": "https",
+									"host": [
+										"api",
+										"telegram",
+										"org"
+									],
+									"path": [
+										"bot{{telegram_token}}",
+										"sendMessage"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "keyboard",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"text\":\"Bom dia! Tudo bem com você?\",\r\n    \"reply_markup\": {\r\n         \"one_time_keyboard\":true,\r\n        \"resize_keyboard\":true,\r\n            \"keyboard\": [[\r\n                {\r\n                    \"text\": \"Sim\"        \r\n                }, \r\n                {\r\n                    \"text\": \"Não\"           \r\n                } \r\n                ]\r\n            ]\r\n        }\r\n}\r\n"
+								},
+								"url": {
+									"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+									"protocol": "https",
+									"host": [
+										"api",
+										"telegram",
+										"org"
+									],
+									"path": [
+										"bot{{telegram_token}}",
+										"sendMessage"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "texto puro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"text\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendMessage"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "HTML",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"parse_mode\":\"HTML\",\r\n\t\"text\":\"<b>bold</b>\\n<strong>strong</strong>\\n<i>italic</i>\\n<em>em</em>\\n<u>underline</u>\\n<ins>ins</ins>\\n<strike>strike</strike>\\n<a href=\\\"https://www.leobreda.net/\\\">https://www.leobreda.net/</a>\\n<code>code</code>\\n<pre>pre lorem ipsum  samet   dolor</pre>\"\r\n\t\r\n        \r\n\r\n}\r\n"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMessage",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendMessage"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/sendPool",
+			"item": [
+				{
+					"name": "Enquete anônima",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"question\":\"Qual o seu Estado?\",\r\n\t\"options\":[\"Acre\",\"Minas Gerais\",\"Paraná\",\"Rio de Janeiro\",\"São Paulo\",\"Tocantins\"],\r\n    \"is_anonymous\":true,\r\n\t\"allows_multiple_answers\":false\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendPoll",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendPoll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enquete identificada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"question\":\"Qual a sua cor favorita?\",\r\n\t\"options\":[\"Preto\",\"Amarelo\",\"Azul\",\"Branco\",\"Cinza\",\"Roxo\"],\r\n    \"is_anonymous\":false,\r\n\t\"allows_multiple_answers\":false\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendPoll",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendPoll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Múltipla escolha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"question\":\"Selecione as suas frutas favoritas?\",\r\n\t\"options\":[\"Mamão\",\"Pera\",\"Maçã\",\"Banana\",\"Abacaxi\",\"Kiwi\"],\r\n\t\"allows_multiple_answers\":true\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendPoll",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendPoll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Única escolha",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"question\":\"Qual o seu sexo?\",\r\n\t\"options\":[\"Masculino\",\"Feminino\"],\r\n\t\"allows_multiple_answers\":false\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendPoll",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendPoll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Única escolha (cronometrado)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"question\":\"Qual o seu seu dia preferido? Esta pergunta encerra em 60 segundos\",\r\n\t\"options\":[\"Domingo\",\"Segunda-feira\",\"Terça-feira\",\"Quarta-feira\",\"Quinta-feira\",\"Sexta-feira\",\"Sábado\"],\r\n\t\"allows_multiple_answers\":false,\r\n    \"open_period\":\"60\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendPoll",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendPoll"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/sendDocument",
+			"item": [
+				{
+					"name": "sendDocument",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"document\":\"https://leobreda.net/download/lorem-ipsum.pdf\",\r\n    \"caption\":\"Lorem Ipsum samet dolor\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendDocument",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendDocument"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/sendMediaGroup",
+			"item": [
+				{
+					"name": "type=photo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"media\":[{\"type\":\"photo\",\"media\":\"https://telegram.org/img/t_logo.png\"}]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMediaGroup",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendMediaGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "type=video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"media\":[{\"type\":\"video\",\"media\":\"https://leobreda.net/download/nodemcu-hello-world.mp4\"}]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMediaGroup",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendMediaGroup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "type=photo[]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"media\":[{\"type\":\"photo\",\"media\":\"https://telegram.org/img/t_logo.png\"},\r\n    {\"type\":\"photo\",\"media\":\"https://core.telegram.org/file/811140934/1/tbDSLHSaijc/fdcc7b6d5fb3354adf\"},\r\n    {\"type\":\"photo\",\"media\":\"https://telegram.org/file/464001796/3/RuL3KG9PxoQ.32309.png/9492993f15dad7ef3c\"}]\r\n}"
+						},
+						"url": {
+							"raw": "https://api.telegram.org/bot{{telegram_token}}/sendMediaGroup",
+							"protocol": "https",
+							"host": [
+								"api",
+								"telegram",
+								"org"
+							],
+							"path": [
+								"bot{{telegram_token}}",
+								"sendMediaGroup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/getUpdates",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var json = pm.response.json();",
+							"pm.environment.set(\"user_id\", json.result[0].message.from.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/getUpdates",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"getUpdates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/sendContact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"phone_number\":\"+55 11 99999-8047\",\r\n\t\"first_name\":\"Leonardo Breda\",\r\n\t\"vcard\":\"BEGIN:VCARD\r\nVERSION:2.1\r\nORG:Tech Lead @ Itau Unibanco\r\nTITLE:Itau Unibanco\r\nTEL;WORK;VOICE:+55 11 2345-6789\r\nTEL;HOME;VOICE:+55 11 99999-8888\r\nADR;WORK;PREF:;;Av do Estado, 3355;São Paulo;SP\r\nEMAIL:leobreda@email.com.br\r\nREV:20080424T195243Z\r\nEND:VCARD\"}"
+				},
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/sendContact",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"sendContact"
+					]
+				},
+				"description": "Pede o numero do celular"
+			},
+			"response": []
+		},
+		{
+			"name": "/sendLocation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\",\r\n\t\"latitude\":-23.5578519,\r\n\t\"longitude\":-46.617725\r\n}"
+				},
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/sendLocation",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"sendLocation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getChat",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"chat_id\":\"{{user_id}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/getChat",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"getChat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getChatMember",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"chat_id\": \"{{user_id}}\",\n    \"user_id\": {{user_id}}\n}"
+				},
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/getChatMember",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"getChatMember"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/getMe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.telegram.org/bot{{telegram_token}}/getMe",
+					"protocol": "https",
+					"host": [
+						"api",
+						"telegram",
+						"org"
+					],
+					"path": [
+						"bot{{telegram_token}}",
+						"getMe"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
